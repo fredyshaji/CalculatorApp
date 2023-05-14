@@ -14,6 +14,7 @@
 		DAC6EEC92A10D59F0018A3AB /* CalculatorAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6EEC82A10D59F0018A3AB /* CalculatorAppUITests.swift */; };
 		DAC6EECB2A10D59F0018A3AB /* CalculatorAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6EECA2A10D59F0018A3AB /* CalculatorAppUITestsLaunchTests.swift */; };
 		DAC6EED82A10D6AD0018A3AB /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6EED72A10D6AD0018A3AB /* CalculatorView.swift */; };
+		DAC6EEDA2A10DAD40018A3AB /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6EED92A10DAD40018A3AB /* ButtonType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DAC6EEC82A10D59F0018A3AB /* CalculatorAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorAppUITests.swift; sourceTree = "<group>"; };
 		DAC6EECA2A10D59F0018A3AB /* CalculatorAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DAC6EED72A10D6AD0018A3AB /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		DAC6EED92A10DAD40018A3AB /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				DAC6EEAD2A10D59D0018A3AB /* CalculatorApp.swift */,
 				DAC6EED72A10D6AD0018A3AB /* CalculatorView.swift */,
+				DAC6EED92A10DAD40018A3AB /* ButtonType.swift */,
 				DAC6EEB12A10D59F0018A3AB /* Assets.xcassets */,
 				DAC6EEB32A10D59F0018A3AB /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC6EED82A10D6AD0018A3AB /* CalculatorView.swift in Sources */,
+				DAC6EEDA2A10DAD40018A3AB /* ButtonType.swift in Sources */,
 				DAC6EEAE2A10D59D0018A3AB /* CalculatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
