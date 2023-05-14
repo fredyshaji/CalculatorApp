@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum ButtonType: Hashable, CustomStringConvertible {
     case digit(_ digit: Digit)
@@ -44,6 +45,26 @@ enum ButtonType: Hashable, CustomStringConvertible {
             return "cos"
         case .bitcoin:
             return "₿"
+        }
+    }
+
+    var backgroundColor: Color {
+        switch self {
+        case .allClear, .clear, .negative, .percent, .sin, .cos, .bitcoin:
+            return Color(.lightGray)
+        case .operation, .equals:
+            return .orange
+        case .digit, .decimal:
+            return .secondary
+        }
+    }
+    
+    var foregroundColor: Color {
+        switch self {
+        case .allClear, .clear, .negative, .percent, .sin, .cos, .bitcoin:
+            return .black
+        default:
+            return .white
         }
     }
 }
