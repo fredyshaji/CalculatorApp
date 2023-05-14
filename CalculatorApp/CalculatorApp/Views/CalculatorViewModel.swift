@@ -56,5 +56,12 @@ extension CalculatorView {
                 calculator.setBitcoinOperation()
             }
         }
+
+        // MARK: - HELPERS
+        
+        func buttonTypeIsHighlighted(buttonType: ButtonType) -> Bool {
+            guard case .operation(let operation) = buttonType else { return false}
+            return calculator.operationIsHighlighted(operation)
+        }
     }
 }
