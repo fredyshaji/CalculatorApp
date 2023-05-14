@@ -11,14 +11,7 @@ import SwiftUI
 
 struct CalculatorView: View {
 
-    var buttonTypes: [[ButtonType]] {
-        [[.allClear, .negative, .percent, .operation(.division)],
-         [.digit(.seven), .digit(.eight), .digit(.nine), .operation(.multiplication)],
-         [.digit(.four), .digit(.five), .digit(.six), .operation(.subtraction)],
-         [.digit(.one), .digit(.two), .digit(.three), .operation(.addition)],
-         [.digit(.zero), .decimal, .equals],
-         [.bitcoin, .sin, .cos]]
-    }
+    @EnvironmentObject private var viewModel: CalculatorViewModel
 
     var body: some View {
         VStack {
@@ -44,7 +37,7 @@ struct CalculatorView_Previews: PreviewProvider {
 extension CalculatorView {
     
     private var displayText: some View {
-        Text("0")
+        Text(viewModel.displayText)
             .padding()
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, alignment: .trailing)
@@ -55,7 +48,7 @@ extension CalculatorView {
 
     private var buttonPad: some View {
         VStack(spacing: Constants.padding) {
-            ForEach(buttonTypes, id: \.self) { row in
+            ForEach(viewModel.buttonTypes, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { buttonType in
                         CalculatorButton(buttonType: buttonType)

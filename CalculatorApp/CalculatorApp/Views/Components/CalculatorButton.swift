@@ -11,9 +11,12 @@ extension CalculatorView {
     struct CalculatorButton: View {
 
         let buttonType: ButtonType
+        @EnvironmentObject private var viewModel: CalculatorViewModel
 
         var body: some View {
-            Button(buttonType.description) { }
+            Button(buttonType.description) {
+                viewModel.performAction(for: buttonType)
+            }
                 .buttonStyle(CalculatorButtonStyle(
                     size: getButtonSize(),
                     backgroundColor: buttonType.backgroundColor,
