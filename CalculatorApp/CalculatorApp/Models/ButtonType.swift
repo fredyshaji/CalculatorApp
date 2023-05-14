@@ -50,9 +50,9 @@ enum ButtonType: Hashable, CustomStringConvertible {
 
     var backgroundColor: Color {
         switch self {
-        case .allClear, .clear, .negative, .percent, .sin, .cos, .bitcoin:
+        case .allClear, .clear, .negative, .percent:
             return Color(.lightGray)
-        case .operation, .equals:
+        case .operation, .equals, .sin, .cos, .bitcoin:
             return .orange
         case .digit, .decimal:
             return .secondary
@@ -61,7 +61,7 @@ enum ButtonType: Hashable, CustomStringConvertible {
     
     var foregroundColor: Color {
         switch self {
-        case .allClear, .clear, .negative, .percent, .sin, .cos, .bitcoin:
+        case .allClear, .clear, .negative, .percent:
             return .black
         default:
             return .white
