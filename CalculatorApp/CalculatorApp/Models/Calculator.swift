@@ -10,10 +10,17 @@ import Foundation
 struct Calculator {
     
     // MARK: - PROPERTIES
+    
+    private var newNumber: Decimal? {
+        didSet {
+            guard newNumber != nil else { return }
+            carryingNegative = false
+        }
+    }
 
-    private var newNumber: Decimal?
     private var expression: ArithmeticExpression?
     private var result: Decimal?
+    private var carryingNegative: Bool = false
     
     // MARK: - COMPUTED PROPERTIES
 
@@ -49,7 +56,20 @@ struct Calculator {
     }
 
     mutating func toggleSign() {
-        
+        if let number = newNumber {
+            newNumber = -number
+            return
+        }
+        if let number = result {
+            result = -number
+            return
+        }
+        if let number = expression?.number {
+            expression?.number = -number
+            return
+        }
+
+        carryingNegative.toggle()
     }
 
     mutating func setPercent() {
@@ -86,20 +106,26 @@ struct Calculator {
     }
 
     mutating func setCosOperation() {
-        if let number = newNumber {
+        if let number = number {
             let radianValue = number * (Decimal.pi / 180.0)
             let doubleValue = NSDecimalNumber(decimal: radianValue).doubleValue
             let sinValue = cos(doubleValue)
-            newNumber = Decimal(sinValue)
+            result = Decimal(sinValue)
+
+            expression = nil
+            newNumber = nil
         }
     }
 
     mutating func setSinOperation() {
-        if let number = newNumber {
+        if let number = number {
             let radianValue = number * (Decimal.pi / 180.0)
             let doubleValue = NSDecimalNumber(decimal: radianValue).doubleValue
             let sinValue = sin(doubleValue)
-            newNumber = Decimal(sinValue)
+            result = Decimal(sinValue)
+
+            expression = nil
+            newNumber = nil
         }
     }
 
@@ -110,7 +136,13 @@ struct Calculator {
     // MARK: - HELPERS
 
     private func getNumberString(forNumber number: Decimal?, withCommas: Bool = false) -> String {
-        return (withCommas ? number?.formatted(.number) : number.map(String.init)) ?? "0"
+        var numberString = (withCommas ? number?.formatted(.number) : number.map(String.init)) ?? "0"
+
+        if carryingNegative {
+            numberString.insert("-", at: numberString.startIndex)
+        }
+
+        return numberString
     }
     
     private func canAddDigit(_ digit: Digit) -> Bool {
