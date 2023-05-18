@@ -53,7 +53,15 @@ struct Calculator {
     }
 
     mutating func setPercent() {
-        
+        if let number = newNumber {
+            newNumber = number / 100
+            return
+        }
+
+        if let number = result {
+            result = number / 100
+            return
+        }
     }
 
     mutating func setDecimal() {
