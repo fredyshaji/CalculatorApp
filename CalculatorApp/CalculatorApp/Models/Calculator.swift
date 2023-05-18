@@ -47,37 +47,52 @@ struct Calculator {
 
         newNumber = nil
     }
-    
+
     mutating func toggleSign() {
         
     }
-    
+
     mutating func setPercent() {
         
     }
-    
+
     mutating func setDecimal() {
         
     }
-    
+
     mutating func evaluate() {
-        
+        guard let number = newNumber, let expressionToEvaluate = expression else { return }
+
+        result = expressionToEvaluate.evaluate(with: number)
+
+        expression = nil
+        newNumber = nil
     }
-    
+
     mutating func allClear() {
         
     }
-    
+
     mutating func clear() {
         
     }
 
     mutating func setCosOperation() {
-        
+        if let number = newNumber {
+            let radianValue = number * (Decimal.pi / 180.0)
+            let doubleValue = NSDecimalNumber(decimal: radianValue).doubleValue
+            let sinValue = cos(doubleValue)
+            newNumber = Decimal(sinValue)
+        }
     }
 
     mutating func setSinOperation() {
-        
+        if let number = newNumber {
+            let radianValue = number * (Decimal.pi / 180.0)
+            let doubleValue = NSDecimalNumber(decimal: radianValue).doubleValue
+            let sinValue = sin(doubleValue)
+            newNumber = Decimal(sinValue)
+        }
     }
 
     mutating func setBitcoinOperation() {
