@@ -53,7 +53,10 @@ extension CalculatorView {
             case .sin:
                 calculator.setSinOperation()
             case .bitcoin:
-                calculator.setBitcoinOperation()
+                CalculatorNetworkHandler().fetchBitcoinValue { [weak self] value, error in
+                    guard let value, let self else { return }
+                    self.calculator.setBitcoinOperation(value: value)
+                }
             }
         }
 

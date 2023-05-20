@@ -8,7 +8,25 @@
 import Foundation
 
 struct Calculator {
-    
+
+    private struct ArithmeticExpression: Equatable {
+        var number: Decimal
+        var operation: ArithmeticOperation
+        
+        func evaluate(with secondNumber: Decimal) -> Decimal {
+            switch operation {
+            case .addition:
+                return number + secondNumber
+            case .subtraction:
+                return number - secondNumber
+            case .multiplication:
+                return number * secondNumber
+            case .division:
+                return number / secondNumber
+            }
+        }
+    }
+
     // MARK: - PROPERTIES
     
     private var newNumber: Decimal? {
@@ -125,31 +143,32 @@ struct Calculator {
     }
 
     mutating func setCosOperation() {
-        if let number = number {
-            let radianValue = number * (Decimal.pi / 180.0)
-            let doubleValue = NSDecimalNumber(decimal: radianValue).doubleValue
-            let sinValue = cos(doubleValue)
-            result = Decimal(sinValue)
+        guard let number else { return }
+        let radianValue = number * (Decimal.pi / 180.0)
+        let doubleValue = NSDecimalNumber(decimal: radianValue).doubleValue
+        let sinValue = cos(doubleValue)
+        result = Decimal(sinValue)
 
-            expression = nil
-            newNumber = nil
-        }
+        expression = nil
+        newNumber = nil
     }
 
     mutating func setSinOperation() {
-        if let number = number {
-            let radianValue = number * (Decimal.pi / 180.0)
-            let doubleValue = NSDecimalNumber(decimal: radianValue).doubleValue
-            let sinValue = sin(doubleValue)
-            result = Decimal(sinValue)
+        guard let number else { return }
+        let radianValue = number * (Decimal.pi / 180.0)
+        let doubleValue = NSDecimalNumber(decimal: radianValue).doubleValue
+        let sinValue = sin(doubleValue)
+        result = Decimal(sinValue)
 
-            expression = nil
-            newNumber = nil
-        }
+        expression = nil
+        newNumber = nil
     }
 
-    mutating func setBitcoinOperation() {
-        
+    mutating func setBitcoinOperation(value: Decimal) {
+        guard let number else { return }
+        result = value * number
+        expression = nil
+        newNumber = nil
     }
 
     // MARK: - HELPERS
@@ -174,24 +193,6 @@ struct Calculator {
     
     private func canAddDigit(_ digit: Digit) -> Bool {
         return number != nil || digit != .zero
-    }
-
-    private struct ArithmeticExpression: Equatable {
-        var number: Decimal
-        var operation: ArithmeticOperation
-        
-        func evaluate(with secondNumber: Decimal) -> Decimal {
-            switch operation {
-            case .addition:
-                return number + secondNumber
-            case .subtraction:
-                return number - secondNumber
-            case .multiplication:
-                return number * secondNumber
-            case .division:
-                return number / secondNumber
-            }
-        }
     }
 
     func operationIsHighlighted(_ operation: ArithmeticOperation) -> Bool {

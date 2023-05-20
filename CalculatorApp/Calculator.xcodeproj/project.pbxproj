@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA36FB8E2A18C82E00F4A5CC /* Coinpaprika in Frameworks */ = {isa = PBXBuildFile; productRef = DA36FB8D2A18C82E00F4A5CC /* Coinpaprika */; };
+		DA36FB902A18C82E00F4A5CC /* CoinpaprikaNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = DA36FB8F2A18C82E00F4A5CC /* CoinpaprikaNetworking */; };
+		DA36FB922A18C82E00F4A5CC /* CoinpaprikaNetworkingMocks in Frameworks */ = {isa = PBXBuildFile; productRef = DA36FB912A18C82E00F4A5CC /* CoinpaprikaNetworkingMocks */; };
+		DA36FB952A18C9C900F4A5CC /* CalculatorNetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA36FB942A18C9C900F4A5CC /* CalculatorNetworkHandler.swift */; };
 		DAC6EEAE2A10D59D0018A3AB /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6EEAD2A10D59D0018A3AB /* CalculatorApp.swift */; };
 		DAC6EEB22A10D59F0018A3AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC6EEB12A10D59F0018A3AB /* Assets.xcassets */; };
 		DAC6EEB52A10D59F0018A3AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC6EEB42A10D59F0018A3AB /* Preview Assets.xcassets */; };
@@ -42,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA36FB942A18C9C900F4A5CC /* CalculatorNetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorNetworkHandler.swift; sourceTree = "<group>"; };
 		DAC6EEAA2A10D59D0018A3AB /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC6EEAD2A10D59D0018A3AB /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
 		DAC6EEB12A10D59F0018A3AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA36FB902A18C82E00F4A5CC /* CoinpaprikaNetworking in Frameworks */,
+				DA36FB922A18C82E00F4A5CC /* CoinpaprikaNetworkingMocks in Frameworks */,
+				DA36FB8E2A18C82E00F4A5CC /* Coinpaprika in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA36FB932A18C97B00F4A5CC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DA36FB942A18C9C900F4A5CC /* CalculatorNetworkHandler.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		DAC6EEA12A10D59D0018A3AB = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +131,7 @@
 				DAC6EEDB2A10DB5F0018A3AB /* Views */,
 				DAC6EEDC2A10DB6F0018A3AB /* Models */,
 				DAC6EEE12A10E37E0018A3AB /* Styles */,
+				DA36FB932A18C97B00F4A5CC /* Networking */,
 				DAC6EEB12A10D59F0018A3AB /* Assets.xcassets */,
 				DAC6EEB32A10D59F0018A3AB /* Preview Content */,
 			);
@@ -199,6 +216,11 @@
 			dependencies = (
 			);
 			name = Calculator;
+			packageProductDependencies = (
+				DA36FB8D2A18C82E00F4A5CC /* Coinpaprika */,
+				DA36FB8F2A18C82E00F4A5CC /* CoinpaprikaNetworking */,
+				DA36FB912A18C82E00F4A5CC /* CoinpaprikaNetworkingMocks */,
+			);
 			productName = CalculatorApp;
 			productReference = DAC6EEAA2A10D59D0018A3AB /* Calculator.app */;
 			productType = "com.apple.product-type.application";
@@ -271,6 +293,9 @@
 				Base,
 			);
 			mainGroup = DAC6EEA12A10D59D0018A3AB;
+			packageReferences = (
+				DA36FB8C2A18C82E00F4A5CC /* XCRemoteSwiftPackageReference "coinpaprika-api-swift-client" */,
+			);
 			productRefGroup = DAC6EEAB2A10D59D0018A3AB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -319,6 +344,7 @@
 				DAC6EEDA2A10DAD40018A3AB /* ButtonType.swift in Sources */,
 				DAC6EEEC2A112CB90018A3AB /* CalculatorViewModel.swift in Sources */,
 				DAC6EEE32A10E3960018A3AB /* CalculatorButtonStyle.swift in Sources */,
+				DA36FB952A18C9C900F4A5CC /* CalculatorNetworkHandler.swift in Sources */,
 				DAC6EEEA2A112C100018A3AB /* Calculator.swift in Sources */,
 				DAC6EEAE2A10D59D0018A3AB /* CalculatorApp.swift in Sources */,
 				DAC6EEDE2A10DBB00018A3AB /* Digit.swift in Sources */,
@@ -647,6 +673,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA36FB8C2A18C82E00F4A5CC /* XCRemoteSwiftPackageReference "coinpaprika-api-swift-client" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/coinpaprika/coinpaprika-api-swift-client";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA36FB8D2A18C82E00F4A5CC /* Coinpaprika */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA36FB8C2A18C82E00F4A5CC /* XCRemoteSwiftPackageReference "coinpaprika-api-swift-client" */;
+			productName = Coinpaprika;
+		};
+		DA36FB8F2A18C82E00F4A5CC /* CoinpaprikaNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA36FB8C2A18C82E00F4A5CC /* XCRemoteSwiftPackageReference "coinpaprika-api-swift-client" */;
+			productName = CoinpaprikaNetworking;
+		};
+		DA36FB912A18C82E00F4A5CC /* CoinpaprikaNetworkingMocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA36FB8C2A18C82E00F4A5CC /* XCRemoteSwiftPackageReference "coinpaprika-api-swift-client" */;
+			productName = CoinpaprikaNetworkingMocks;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DAC6EEA22A10D59D0018A3AB /* Project object */;
 }
