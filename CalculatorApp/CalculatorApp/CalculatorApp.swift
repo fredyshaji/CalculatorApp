@@ -13,6 +13,7 @@ struct CalculatorApp: App {
         WindowGroup {
             CalculatorView()
                 .environmentObject(CalculatorView.CalculatorViewModel())
+                .environmentObject(ThemeSource())
         }
     }
 }

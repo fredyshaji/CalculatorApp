@@ -37,8 +37,8 @@ struct CalculatorButtonStyle_Previews: PreviewProvider {
         Button(buttonType.description) { }
             .buttonStyle(CalculatorButtonStyle(
                 size: 80,
-                backgroundColor: buttonType.backgroundColor,
-                foregroundColor: buttonType.foregroundColor)
+                backgroundColor: .gray,
+                foregroundColor: .white)
             )
     }
 }

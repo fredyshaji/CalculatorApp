@@ -47,24 +47,4 @@ enum ButtonType: Hashable, CustomStringConvertible {
             return "₿"
         }
     }
-
-    var backgroundColor: Color {
-        switch self {
-        case .allClear, .clear, .negative, .percent:
-            return Color(.lightGray)
-        case .operation, .equals, .sin, .cos, .bitcoin:
-            return .orange
-        case .digit, .decimal:
-            return .secondary
-        }
-    }
-    
-    var foregroundColor: Color {
-        switch self {
-        case .allClear, .clear, .negative, .percent:
-            return .black
-        default:
-            return .white
-        }
-    }
 }
