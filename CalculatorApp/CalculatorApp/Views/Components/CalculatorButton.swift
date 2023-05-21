@@ -46,5 +46,6 @@ extension CalculatorView {
 struct CalculatorView_CalculatorButton_Previews: PreviewProvider {
     static var previews: some View {
         CalculatorView.CalculatorButton(buttonType: .digit(.five))
+            .environmentObject(CalculatorView.CalculatorViewModel())
     }
 }
