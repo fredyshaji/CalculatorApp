@@ -46,6 +46,11 @@ struct CalculatorView: View {
             buttonPad
         }
         .padding(Constants.padding)
+        .alert(item: $viewModel.error) { error in
+            Alert(title: Text("Error"),
+                  message: Text(error.error.localizedDescription),
+                  dismissButton: .cancel())
+        }
         .background(Color(themeSource.selectedTheme.primaryColor))
         .onReceive(orientationChanged) { _ in
             self.orientation = UIDevice.current.orientation

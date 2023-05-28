@@ -14,6 +14,7 @@ extension CalculatorView {
         // MARK: - PROPERTIES
         
         @Published private var calculator = Calculator()
+        @Published var error: ErrorDisplay?
         
         var displayText: String {
             return calculator.displayText
@@ -61,7 +62,13 @@ extension CalculatorView {
                 calculator.setSinOperation()
             case .bitcoin:
                 CalculatorNetworkHandler().fetchBitcoinValue { [weak self] value, error in
-                    guard let value, let self else { return }
+                    guard let value, let self
+                    else {
+                        if let error {
+                            self?.error = ErrorDisplay(error: error)
+                        }
+                        return
+                    }
                     self.calculator.setBitcoinOperation(value: value)
                 }
             }
@@ -74,4 +81,9 @@ extension CalculatorView {
             return calculator.operationIsHighlighted(operation)
         }
     }
+}
+
+struct ErrorDisplay: Identifiable {
+    var id: String = UUID().uuidString
+    var error: Error
 }
