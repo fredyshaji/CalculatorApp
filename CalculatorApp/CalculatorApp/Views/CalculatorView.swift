@@ -15,6 +15,8 @@ struct CalculatorView: View {
     @EnvironmentObject private var themeSource: ThemeSource
     @State private var switchTheme = false
     @State var orientation = UIDevice.current.orientation
+    @State var showModel = false
+    @State var disabledFeatures = Set<ButtonType>()
 
     let orientationChanged = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
             .makeConnectable()
@@ -22,6 +24,14 @@ struct CalculatorView: View {
 
     var body: some View {
         VStack {
+            Button(action: {
+                            showModel.toggle()
+                        }, label: {
+                            Text("Show filters")
+                        }).sheet(isPresented: $showModel, content: {
+                            FeatureToggleView(multiSelection: $disabledFeatures)
+                                .environmentObject(FeatureToggleView.FeatureToggleViewModel())
+                        })
             Toggle("Switch Theme", isOn: $switchTheme)
                 .onChange(of: switchTheme) { newValue in
                     if newValue {
@@ -70,10 +80,13 @@ extension CalculatorView {
     private var buttonPad: some View {
         VStack(spacing: Constants.padding) {
             let buttonTypes = orientation.isLandscape ? viewModel.buttonTypesLandscape : viewModel.buttonTypes
+            let disabledButtons = Array(disabledFeatures)
             ForEach(buttonTypes, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { buttonType in
-                        CalculatorButton(buttonType: buttonType, horizontalButtonCount: CGFloat(row.count), verticalButtonCount: CGFloat(buttonTypes.count))
+                        if !disabledButtons.contains(buttonType) {
+                            CalculatorButton(buttonType: buttonType, horizontalButtonCount: CGFloat(row.count), verticalButtonCount: CGFloat(buttonTypes.count))
+                        }
                     }
                 }
             }

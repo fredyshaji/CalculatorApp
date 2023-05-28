@@ -15,6 +15,10 @@
 		DA36FB9C2A1A590200F4A5CC /* ThemeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA36FB9B2A1A590200F4A5CC /* ThemeDefinitions.swift */; };
 		DA36FB9E2A1A5AB900F4A5CC /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA36FB9D2A1A5AB900F4A5CC /* ThemeManager.swift */; };
 		DA36FBA02A1A5D2B00F4A5CC /* ThemeSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA36FB9F2A1A5D2B00F4A5CC /* ThemeSource.swift */; };
+		DA839A832A2393DE002BF74F /* FeatureToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA839A822A2393DE002BF74F /* FeatureToggleView.swift */; };
+		DA839A852A2397CB002BF74F /* FeatureToggleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA839A842A2397CB002BF74F /* FeatureToggleViewModel.swift */; };
+		DA839A892A239E9F002BF74F /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA839A882A239E9F002BF74F /* Feature.swift */; };
+		DA839A8B2A239FF5002BF74F /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA839A8A2A239FF5002BF74F /* FeatureRow.swift */; };
 		DAC6EEAE2A10D59D0018A3AB /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6EEAD2A10D59D0018A3AB /* CalculatorApp.swift */; };
 		DAC6EEB22A10D59F0018A3AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC6EEB12A10D59F0018A3AB /* Assets.xcassets */; };
 		DAC6EEB52A10D59F0018A3AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC6EEB42A10D59F0018A3AB /* Preview Assets.xcassets */; };
@@ -55,6 +59,10 @@
 		DA36FB9B2A1A590200F4A5CC /* ThemeDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDefinitions.swift; sourceTree = "<group>"; };
 		DA36FB9D2A1A5AB900F4A5CC /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		DA36FB9F2A1A5D2B00F4A5CC /* ThemeSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSource.swift; sourceTree = "<group>"; };
+		DA839A822A2393DE002BF74F /* FeatureToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleView.swift; sourceTree = "<group>"; };
+		DA839A842A2397CB002BF74F /* FeatureToggleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleViewModel.swift; sourceTree = "<group>"; };
+		DA839A882A239E9F002BF74F /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		DA839A8A2A239FF5002BF74F /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
 		DAC6EEAA2A10D59D0018A3AB /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC6EEAD2A10D59D0018A3AB /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
 		DAC6EEB12A10D59F0018A3AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +197,8 @@
 				DAC6EEE42A10E5A10018A3AB /* Components */,
 				DAC6EED72A10D6AD0018A3AB /* CalculatorView.swift */,
 				DAC6EEEB2A112CB90018A3AB /* CalculatorViewModel.swift */,
+				DA839A822A2393DE002BF74F /* FeatureToggleView.swift */,
+				DA839A842A2397CB002BF74F /* FeatureToggleViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +210,7 @@
 				DAC6EEDD2A10DBB00018A3AB /* Digit.swift */,
 				DAC6EEDF2A10DC030018A3AB /* ArithmeticOperation.swift */,
 				DAC6EEE92A112C100018A3AB /* Calculator.swift */,
+				DA839A882A239E9F002BF74F /* Feature.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				DAC6EEE52A10E5C00018A3AB /* CalculatorButton.swift */,
+				DA839A8A2A239FF5002BF74F /* FeatureRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -361,16 +373,20 @@
 				DAC6EEE02A10DC030018A3AB /* ArithmeticOperation.swift in Sources */,
 				DAC6EEE62A10E5C00018A3AB /* CalculatorButton.swift in Sources */,
 				DA36FB9C2A1A590200F4A5CC /* ThemeDefinitions.swift in Sources */,
+				DA839A852A2397CB002BF74F /* FeatureToggleViewModel.swift in Sources */,
 				DAC6EED82A10D6AD0018A3AB /* CalculatorView.swift in Sources */,
 				DAC6EEDA2A10DAD40018A3AB /* ButtonType.swift in Sources */,
+				DA839A892A239E9F002BF74F /* Feature.swift in Sources */,
 				DAC6EEEC2A112CB90018A3AB /* CalculatorViewModel.swift in Sources */,
 				DAC6EEE32A10E3960018A3AB /* CalculatorButtonStyle.swift in Sources */,
 				DA36FB952A18C9C900F4A5CC /* CalculatorNetworkHandler.swift in Sources */,
 				DA36FBA02A1A5D2B00F4A5CC /* ThemeSource.swift in Sources */,
 				DAC6EEEA2A112C100018A3AB /* Calculator.swift in Sources */,
 				DAC6EEAE2A10D59D0018A3AB /* CalculatorApp.swift in Sources */,
+				DA839A832A2393DE002BF74F /* FeatureToggleView.swift in Sources */,
 				DA36FB9A2A1A57A700F4A5CC /* Theme.swift in Sources */,
 				DAC6EEDE2A10DBB00018A3AB /* Digit.swift in Sources */,
+				DA839A8B2A239FF5002BF74F /* FeatureRow.swift in Sources */,
 				DAC6EEE82A10E73F0018A3AB /* Constants.swift in Sources */,
 				DA36FB9E2A1A5AB900F4A5CC /* ThemeManager.swift in Sources */,
 			);
