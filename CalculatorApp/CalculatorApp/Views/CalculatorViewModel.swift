@@ -27,6 +27,13 @@ extension CalculatorView {
              [.digit(.zero), .decimal, .equals],
              [.bitcoin, .sin, .cos]]
         }
+
+        var buttonTypesLandscape: [[ButtonType]] {
+            [[.allClear, .negative, .percent, .decimal, .operation(.division)],
+             [.digit(.five), .digit(.six), .digit(.seven), .digit(.eight), .digit(.nine), .operation(.multiplication)],
+             [.digit(.zero), .digit(.one), .digit(.two), .digit(.three), .digit(.four), .operation(.subtraction)],
+             [.sin, .cos, .bitcoin, .equals, .operation(.addition)]]
+        }
         
         // MARK: - ACTIONS
         

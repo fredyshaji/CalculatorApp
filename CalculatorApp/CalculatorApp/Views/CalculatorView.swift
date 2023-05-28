@@ -14,6 +14,11 @@ struct CalculatorView: View {
     @EnvironmentObject private var viewModel: CalculatorViewModel
     @EnvironmentObject private var themeSource: ThemeSource
     @State private var switchTheme = false
+    @State var orientation = UIDevice.current.orientation
+
+    let orientationChanged = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
+            .makeConnectable()
+            .autoconnect()
 
     var body: some View {
         VStack {
@@ -32,6 +37,9 @@ struct CalculatorView: View {
         }
         .padding(Constants.padding)
         .background(Color(themeSource.selectedTheme.primaryColor))
+        .onReceive(orientationChanged) { _ in
+            self.orientation = UIDevice.current.orientation
+        }
     }
 }
 
@@ -61,7 +69,8 @@ extension CalculatorView {
 
     private var buttonPad: some View {
         VStack(spacing: Constants.padding) {
-            ForEach(viewModel.buttonTypes, id: \.self) { row in
+            let buttonTypes = orientation.isLandscape ? viewModel.buttonTypesLandscape : viewModel.buttonTypes
+            ForEach(buttonTypes, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { buttonType in
                         CalculatorButton(buttonType: buttonType)

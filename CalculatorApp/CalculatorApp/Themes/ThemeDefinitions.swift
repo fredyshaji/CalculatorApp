@@ -28,9 +28,9 @@ struct LightTheme: Theme {
     func getForegroundColor(for buttonType: ButtonType) -> UIColor {
         switch buttonType {
         case .allClear, .clear, .negative, .percent:
-            return .black
-        default:
             return .white
+        default:
+            return .black
         }
     }
     

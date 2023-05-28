@@ -19,18 +19,27 @@ extension CalculatorView {
                 viewModel.performAction(for: buttonType)
             }
                 .buttonStyle(CalculatorButtonStyle(
-                    size: getButtonSize(),
+                    height: UIDevice.current.orientation.isLandscape ? getButtonHeight() : getButtonWidth(),
+                    width: getButtonWidth(),
                     backgroundColor: Color(themeSource.selectedTheme.getBackgroundColor(for: buttonType)),
                     foregroundColor: Color(themeSource.selectedTheme.getForegroundColor(for: buttonType)),
-                    isWide: buttonType == .digit(.zero) || buttonType == .bitcoin)
+                    isWide: true)
                 )
         }
 
-        private func getButtonSize() -> CGFloat {
+        private func getButtonWidth() -> CGFloat {
             let screenWidth = UIScreen.main.bounds.width
-            let buttonCount: CGFloat = 4.0
+            let buttonCount: CGFloat = UIDevice.current.orientation.isLandscape ? 6.0 : 4.0
             let spacingCount = buttonCount + 1
             return (screenWidth - (spacingCount * Constants.padding)) / buttonCount
+        }
+
+        private func getButtonHeight() -> CGFloat {
+            let screenHeight = UIScreen.main.bounds.height
+            let buttonCount: CGFloat = 4.0
+            let spacingCount = buttonCount + 1
+            let availableHeight = screenHeight - 130
+            return (availableHeight - (spacingCount * Constants.padding)) / buttonCount
         }
 
         private func getBackgroundColor() -> Color {

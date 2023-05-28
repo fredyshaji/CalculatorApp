@@ -9,16 +9,17 @@ import SwiftUI
 
 struct CalculatorButtonStyle: ButtonStyle {
     
-    var size: CGFloat
+    var height: CGFloat
+    var width: CGFloat
     var backgroundColor: Color
     var foregroundColor: Color
     var isWide: Bool = false
     
     func makeBody(configuration: Configuration) -> some View {
             configuration.label
-                .font(.system(size: 32, weight: .medium))
-                .frame(width: size, height: size)
-                .frame(maxWidth: isWide ? .infinity : size, alignment: .leading)
+            .font(.system(size: 28, weight: .medium))
+                .frame(width: width, height: height)
+                .frame(maxWidth: isWide ? .infinity : width, alignment: .leading)
                 .background(backgroundColor)
                 .foregroundColor(foregroundColor)
                 .overlay {
@@ -36,7 +37,8 @@ struct CalculatorButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         Button(buttonType.description) { }
             .buttonStyle(CalculatorButtonStyle(
-                size: 80,
+                height: 80,
+                width: 80,
                 backgroundColor: .gray,
                 foregroundColor: .white)
             )
