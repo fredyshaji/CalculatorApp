@@ -73,7 +73,7 @@ extension CalculatorView {
             ForEach(buttonTypes, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { buttonType in
-                        CalculatorButton(buttonType: buttonType)
+                        CalculatorButton(buttonType: buttonType, horizontalButtonCount: CGFloat(row.count), verticalButtonCount: CGFloat(buttonTypes.count))
                     }
                 }
             }
